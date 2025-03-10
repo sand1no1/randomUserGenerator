@@ -1,6 +1,7 @@
 'use client';
 import { useRandomUser } from "./hooks/useRandomUser";
-
+import Image from "next/image";
+  
 export default function Page() {
   const { users, selectedUser, setSelectedUser, getRandomUser, loading } = useRandomUser();
 
@@ -35,9 +36,11 @@ export default function Page() {
         {selectedUser ? (
           <div className="mt-10">
             <h2 className="text-2xl font-bold">{selectedUser.name.first} {selectedUser.name.last}</h2>
-            <img
+            <Image 
               src={selectedUser.picture.large}
               alt="User"
+              width={128}
+              height={128}
               className="rounded-full my-4 w-32 h-32 border-4 border-gray-300"
             />
             <p className="text-lg"><strong>Email:</strong> {selectedUser.email}</p>
